@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Change this to a more secure key
  
 # Define allowed hosts
-ALLOWED_HOSTS = ["34.247.67.139", "127.0.0.1", "localhost"]  # Add your allowed IPs/domains here
+ALLOWED_HOSTS = ["54.76.108.67", "127.0.0.1", "localhost"]  # Add your allowed IPs/domains here
  
 # MySQL Connection
 try:
