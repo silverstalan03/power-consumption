@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: darkred;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid green;
+        }
+        th {
+            background-color: darkgreen;
+        }
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+        tr:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <a href="{{ url_for('add_measurement') }}" class="button">Add Measurement</a>
+        <a href="{{ url_for('logout') }}" class="button">Logout</a>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Current</th>
+                    <th>Voltage</th>
+                    <th>Power Factor</th>
+                    <th>Item Name</th>
+                    <th>Power</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for measurement in measurements %}
+                <tr>
+                    <td>{{ measurement[2] }}</td>
+                    <td>{{ measurement[3] }}</td>
+                    <td>{{ measurement[4] }}</td>
+                    <td>{{ measurement[5] }}</td>
+                    <td>{{ measurement[6] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_measurement', measurement_id=measurement[0]) }}" class="button">Edit</a>
+                        <form action="{{ url_for('delete_measurement', measurement_id=measurement[0]) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="button">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Measurement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #333, #111);
+        }
+        .form-container {
+            background-color: rgba(50, 50, 50, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: lightgreen;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: lightgreen;
+            font-size: 16px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid green;
+            background-color: #222;
+            color: green;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input:focus {
+            outline: none;
+            border-color: red;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        .error-message {
+            color: red;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Measurement</h1>
+        <form action="{{ url_for('edit_measurement', measurement_id=measurement[0]) }}" method="POST">
+            <label for="current">Current</label>
+            <input type="number" id="current" name="current" value="{{ measurement[2] }}" required step="any">
+
+            <label for="voltage">Voltage</label>
+            <input type="number" id="voltage" name="voltage" value="{{ measurement[3] }}" required step="any">
+
+            <label for="power_factor">Power Factor</label>
+            <input type="number" id="power_factor" name="power_factor" value="{{ measurement[4] }}" required step="any">
+
+            <label for="item_name">Item Name</label>
+            <input type="text" id="item_name" name="item_name" value="{{ measurement[5] }}" required>
+
+            <button type="submit">Update Measurement</button>
+        </form>
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

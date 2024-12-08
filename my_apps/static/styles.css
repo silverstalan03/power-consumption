@@ -1,0 +1,110 @@
+/* Full Black Background */
+body {
+    background-color: black;
+    color: green;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+h1, h2 {
+    text-align: center;
+    color: green;
+}
+
+/* Form Styling */
+form {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="submit"],
+form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+/* Input fields */
+form input[type="text"],
+form input[type="password"] {
+    color: green;
+    background-color: black;
+}
+
+/* Submit Button */
+form button,
+form input[type="submit"] {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid green;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: green;
+}
+
+td {
+    background-color: black;
+    color: green;
+}
+
+/* Link Styling */
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container Styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container a,
+.container button {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
